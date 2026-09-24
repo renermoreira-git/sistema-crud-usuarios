@@ -1,10 +1,5 @@
 import tkinter as tk 
-from banco import insert 
-from banco import buscar_user
-from banco import deletar_user
-from banco import atualizar_user
-from banco import pesquisar_cidade
-
+from banco import *
 
 janela = tk.Tk()
 
@@ -300,7 +295,7 @@ def pesquisar_cidade1():
         lista.insert(tk.END, usuarios)
 
     cadastro.configure(
-        text="Usuários Listado, p/ Cidade"
+        text="Usuários Listado p/ Cidade"
     )
     
     
