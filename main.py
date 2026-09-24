@@ -16,7 +16,7 @@ titulo = tk.Label(
     janela, 
     text="CADASTRO DE USUÁRIO",
     font=("Arial", 24, "bold"),
-    bg="#1E293B",
+    bg="#0F172A",
     fg="white",
     pady=20
 )
@@ -41,7 +41,8 @@ frame_busca = tk.LabelFrame(
 )
 frame_busca.grid(
     row=1,
-    column=2
+    column=2,
+    padx=5
 )
 
 frame_excluir = tk.LabelFrame(
@@ -50,7 +51,8 @@ frame_excluir = tk.LabelFrame(
 )
 frame_excluir.grid(
     row=2,
-    column=0
+    column=0,
+    padx=5
 )
 
 frame_alterar = tk.LabelFrame(
@@ -165,7 +167,7 @@ def limpar():
      entrada_idade.delete(0, tk.END)
      entrada_cidade.delete(0, tk.END)
 
-     cadastro.configure(text="")
+     cadastro.configure(text="Tela Limpa")
      lista.delete(0, tk.END)
 
 limpa = tk.Button(
@@ -184,6 +186,10 @@ def exibir_user():
 
      for usuarios in usuarios:
             lista.insert(tk.END, usuarios)
+            cadastro.configure(
+                text="Usuários Listados"
+            )
+            
 
 buscar = tk.Button(
      frame_busca,
@@ -195,7 +201,7 @@ buscar.grid(row=0, column=0, pady=10, padx=10)
 lista = tk.Listbox(frame_busca)
 lista.grid(row=1, column=0)
 
-entrada_id = tk.Entry(frame_excluir)
+entrada_id = tk.Entry(frame_excluir,width=30)
 entrada_id.grid (row=0, column=1, pady=10, padx=10)
 
 
@@ -225,7 +231,7 @@ excluir = tk.Button(
     text="Excluir User",
     command=excluir_user
 )
-excluir.grid (row=1, column=0, columnspan=2)
+excluir.grid (row=1, column=0, columnspan=2, padx=10, pady=10)
 
 #Atualizando Users
 
@@ -292,12 +298,14 @@ def pesquisar_cidade1():
     usuarios = pesquisar_cidade(cidade_pesquisa)
     for usuarios in usuarios:
         lista.insert(tk.END, usuarios)
+
     cadastro.configure(
-        text="Usuários Listado"
+        text="Usuários Listado, p/ Cidade"
     )
     
-
-
+    
+    
 pesquisar_botao = tk.Button(frame_pesquisar, text="Pesquisar", command=pesquisar_cidade1)
 pesquisar_botao.grid(row=2, column=0, columnspan=2)
+
 janela.mainloop()
