@@ -1,7 +1,11 @@
 import tkinter as tk 
+from tkinter import ttk 
 from banco import *
+from estilos import configurar_estilos
+
 
 janela = tk.Tk()
+style = configurar_estilos(janela)
 
 janela.title("Cadastro de Usuário")
 janela.configure(bg="#F1F5F9")
@@ -22,7 +26,7 @@ frame_cadastro = tk.LabelFrame(
     janela, 
     text="Cadastrar Usuário"
 )
-frame_cadastro.configure(background="lightblue")
+
 
 frame_cadastro.grid(
     row=1,
@@ -37,7 +41,8 @@ frame_busca = tk.LabelFrame(
 frame_busca.grid(
     row=1,
     column=2,
-    padx=5
+    padx=5, 
+    pady=10
 )
 
 frame_excluir = tk.LabelFrame(
@@ -71,29 +76,30 @@ frame_pesquisar.grid(row=2, column=2)
 
 #Nome, Idade e Cidade
 
-nome = tk.Label(
+nome = ttk.Label(
     frame_cadastro, 
     text="Nome: ",
-    font=("Arial", 10)
+    style="Texto.TLabel"
 )
 
-idade = tk.Label(
+idade = ttk.Label(
     frame_cadastro, 
     text="Idade: ",
-    font=("Arial", 10)
+    style="Texto.TLabel"
 )
 
-cidade = tk.Label(
+cidade = ttk.Label(
     frame_cadastro, 
-    text="Cidade: ",
-    font=("Arial", 10)
+    text="Cidade: ", 
+    style="Texto.TLabel"
 )
 
-label_id = tk.Label(
+label_id = ttk.Label(
     frame_excluir,
     text="Id do usuário:",
+    style="Texto.TLabel"
 )
-label_id.grid(row=0, column=0)
+label_id.grid(row=0, column=0, padx=10, pady=8)
 
 nome.grid(row=0, column=0, padx=10, pady=8)
 idade.grid(row=1, column=0, padx=10, pady=8)
@@ -140,10 +146,11 @@ def cadastrar():
         
     
 #Botão Cadastrar
-botao_cadastro = tk.Button(
+botao_cadastro = ttk.Button(
     frame_cadastro, 
     text="Cadastro",
-    command=cadastrar
+    command=cadastrar,
+    style="Botao.TButton"
 )
 botao_cadastro.grid(row=3, column=0, columnspan=2, pady=15)
 
@@ -152,6 +159,7 @@ botao_cadastro.grid(row=3, column=0, columnspan=2, pady=15)
 cadastro = tk.Label(
     janela,
     text="",
+    font=("Arial", 10, "bold")
 )
 cadastro.grid(row=3, column=2, columnspan=3, pady=10)
 
@@ -165,13 +173,14 @@ def limpar():
      cadastro.configure(text="Tela Limpa")
      lista.delete(0, tk.END)
 
-limpa = tk.Button(
+limpa = ttk.Button(
     frame_busca,
     text="🗑️ Limpar",
-    command=limpar
+    command=limpar,
+    style="Botao.TButton"
 
 )
-limpa.grid(row=2, column=0)
+limpa.grid(row=2, column=0, padx=10, pady=10)
 
 #buscar Users
 
@@ -186,17 +195,18 @@ def exibir_user():
             )
             
 
-buscar = tk.Button(
+buscar = ttk.Button(
      frame_busca,
      text="Buscar Usuário",
-     command=exibir_user
+     command=exibir_user,
+     style="Botao.TButton"
 )
 buscar.grid(row=0, column=0, pady=10, padx=10)
 
 lista = tk.Listbox(frame_busca)
 lista.grid(row=1, column=0)
 
-entrada_id = tk.Entry(frame_excluir,width=30)
+entrada_id = ttk.Entry(frame_excluir,width=30, style = "Entrada.TEntry")
 entrada_id.grid (row=0, column=1, pady=10, padx=10)
 
 
@@ -221,10 +231,11 @@ def excluir_user():
                 text="Digite um ID valido"
             )
         
-excluir = tk.Button(
+excluir = ttk.Button(
     frame_excluir,
     text="Excluir User",
-    command=excluir_user
+    command=excluir_user,
+    style="Botao.TButton"
 )
 excluir.grid (row=1, column=0, columnspan=2, padx=10, pady=10)
 
@@ -244,42 +255,43 @@ def atualizar_user1():
     )
 
 
-id_alterado = tk.Entry(frame_alterar)
-nome_alterado = tk.Entry(frame_alterar)
-idade_alterado = tk.Entry(frame_alterar)
+id_alterado = tk.Entry(frame_alterar, width=30)
+nome_alterado = tk.Entry(frame_alterar, width=30)
+idade_alterado = tk.Entry(frame_alterar, width=30)
 
 id_alterado.grid(row=0, column=1, padx=10, pady=8)
 nome_alterado.grid(row=1, column=1, padx=10, pady=8)
 idade_alterado.grid(row=2, column=1, padx=10, pady=8)
 
-id_atulizar = tk.Label(
+id_atulizar = ttk.Label(
     frame_alterar,
     text="ID Alterado:",
-    font=("Arial", 10)
+    style="Texto.TLabel"
 )
 
-nome_atualizar = tk.Label(
+nome_atualizar = ttk.Label(
     frame_alterar,
     text="Nome Alterado:",
-    font=("Arial", 10)
+    style="Texto.TLabel"
 )
 
-idade_atualizar = tk.Label(
+idade_atualizar = ttk.Label(
     frame_alterar,
     text="Idade Alterada:",
-    font=("Arial", 10)
+    style="Texto.TLabel"
 )
 
 id_atulizar.grid(row=0, column=0)
 nome_atualizar.grid(row=1, column=0)
 idade_atualizar.grid(row=2, column=0)
 
-editar = tk.Button(
+editar = ttk.Button(
     frame_alterar, 
     text="Alterar campos",
-    command=atualizar_user1
+    command=atualizar_user1,
+    style="Botao.TButton"
 )
-editar.grid(row=3, column=1, columnspan=2)
+editar.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
 
 entrada_pesquisa = tk.Entry(frame_pesquisar)
 entrada_pesquisa.grid(
@@ -289,6 +301,7 @@ entrada_pesquisa.grid(
 
 def pesquisar_cidade1():
     cidade_pesquisa = entrada_pesquisa.get()
+    lista.delete(0,tk.END)
 
     usuarios = pesquisar_cidade(cidade_pesquisa)
     for usuarios in usuarios:
@@ -297,10 +310,8 @@ def pesquisar_cidade1():
     cadastro.configure(
         text="Usuários Listado p/ Cidade"
     )
-    
-    
-    
-pesquisar_botao = tk.Button(frame_pesquisar, text="Pesquisar", command=pesquisar_cidade1)
-pesquisar_botao.grid(row=2, column=0, columnspan=2)
+
+pesquisar_botao = ttk.Button(frame_pesquisar, text="Pesquisar", command=pesquisar_cidade1, style="Botao.TButton")
+pesquisar_botao.grid(row=2, column=0, columnspan=2, padx=10, pady=10)
 
 janela.mainloop()
