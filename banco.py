@@ -73,6 +73,8 @@ def atualizar_user(id, nome, idade):
     fechar_conexao(conexao)
     fechar_cursor(cursor)
 
+#Pesquisar Por Cidades
+
 def pesquisar_cidade(cidade):
     conexao = conectar()
     cursor = conexao.cursor()
