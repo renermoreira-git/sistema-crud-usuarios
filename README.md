@@ -55,10 +55,11 @@ A tabela utilizada possui os seguintes campos:
 ## Estrutura do projeto
 
 ```text
-sistema/
+sistema-crud-usuarios/
 ├── .venv/
 ├── .env
 ├── .gitignore
 ├── banco.py
 ├── main.py
+├── estilos.py
 └── README.md
