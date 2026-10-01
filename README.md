@@ -57,7 +57,6 @@ A tabela utilizada possui os seguintes campos:
 ```text
 sistema-crud-usuarios/
 ├── .venv/
-├── .env
 ├── .gitignore
 ├── banco.py
 ├── main.py
