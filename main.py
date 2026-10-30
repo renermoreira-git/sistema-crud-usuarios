@@ -134,17 +134,15 @@ def cadastrar():
         )
             else:
                 cadastro.configure(
-            text=f"Olá {nome}\nVocê tem {idade_convertida} anos\nMora em {cidade}\nVocê é maior de idade."
+            text=f"Olá {nome}\nVocê tem {idade_convertida} anos\nMora em {cidade}\nVocê é maior de idade.",
+            style="Sucesso.TLabel"
         )
             insert(nome=nome, idade_convertida=idade_convertida, cidade=cidade)
         except ValueError:
             cadastro.configure(
-            text="⚠️ A idade precisa ser um número!"
-            )
-
-
-        
-    
+            text="⚠️ A idade precisa ser um número!",
+            style= "Erro.TLabel"
+            ) 
 #Botão Cadastrar
 botao_cadastro = ttk.Button(
     frame_cadastro, 
@@ -156,10 +154,9 @@ botao_cadastro.grid(row=3, column=0, columnspan=2, pady=15)
 
 #Exibir
 
-cadastro = tk.Label(
+cadastro = ttk.Label(
     janela,
-    text="",
-    font=("Arial", 10, "bold")
+    text=""
 )
 cadastro.grid(row=3, column=2, columnspan=3, pady=10)
 
@@ -228,7 +225,8 @@ def excluir_user():
             )
         except ValueError:
             cadastro.configure(
-                text="Digite um ID valido"
+                text="Digite um ID valido",
+                style="Erro.TLabel"
             )
         
 excluir = ttk.Button(

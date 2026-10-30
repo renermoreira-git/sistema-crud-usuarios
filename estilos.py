@@ -39,7 +39,15 @@ def configurar_estilos(janela):
         paadiing = 5
     )
 
-    
+    style.configure(
+        "Erro.TLabel",
+        foreground= erro
+    )
+
+    style.configure(
+        "Sucesso.TLabel",
+        foreground= sucesso
+    )
 
     
     return style
