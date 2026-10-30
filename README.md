@@ -101,8 +101,6 @@ DB_USER=seu_usuario
 DB_PASSWORD=sua_senha
 ```
  
-Não envie o arquivo `.env` para o repositório (mantenha-o no `.gitignore`).
- 
 ## Como executar
  
 ### Interface gráfica
