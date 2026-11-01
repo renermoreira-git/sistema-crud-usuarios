@@ -31,7 +31,7 @@ async def listar_all():
     return listar_user()
 
 #Router Listar by ID
-@router.get("/usuarios{id}")
+@router.get("/usuarios/{id}")
 async def listar_id(id:int):
     usuario = listar_por_id(id)
 
